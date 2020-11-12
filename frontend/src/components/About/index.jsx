@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import  PageHeader from '../PageHeader';
 
 const About = () => {
     return (
-        <div>
-            
+        <div className="container">
+            <PageHeader title="Sobre" />
         </div>
-    )
+    );
 }
 
-export default About
+export default About;
