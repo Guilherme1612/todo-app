@@ -4,6 +4,8 @@ import { faTrash, faCheck, faUndo } from '@fortawesome/free-solid-svg-icons';
 
 import IconButton from '../IconButton'
 
+import './styles.css';
+
 const TodoList = props => {
     const list = props.list || []
 
@@ -12,16 +14,16 @@ const TodoList = props => {
             <tbody>
                 {
                     list.map((item) => (
-                        <tr className="row" key={item._id} >
-                            <th className="d-flex align-items-center col-sm-6 col-12 text-sm-left text-center px-4" scope="row">
-                                <span>{item.description}</span>
+                        <tr className="row border mx-0" key={item._id} >
+                            <th className="d-flex align-items-center col-sm-6 col-12 px-4" scope="row">
+                                <span className={ item.done ? 'markedAsDone' : '' } >{item.description}</span>
                             </th>
-                            <td className="col-sm-6 col-12 text-sm-right text-center px-4">
-                                <IconButton color="success mr-2" handleClick={() => props.handleMarkAsDone(item) } >
+                            <td className="col-sm-6 col-12 text-sm-right text-left px-4">
+                                <IconButton color="success mr-2" handleClick={() => props.handleMarkAsDone(item) } hide={item.done} >
                                     <FontAwesomeIcon icon={faCheck} className="text-light" />
                                 </IconButton>
                                 
-                                <IconButton color="warning mr-2" handleClick={() => props.handleMarkAsPending(item) } >
+                                <IconButton color="warning mr-2" handleClick={() => props.handleMarkAsPending(item) } hide={!item.done} >
                                     <FontAwesomeIcon icon={faUndo} className="text-light" />
                                 </IconButton>
 
