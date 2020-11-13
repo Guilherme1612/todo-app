@@ -6,7 +6,7 @@ const PageHeader = props => {
             <header className="d-flex align-items-center mt-5">
                 <h2>{props.title}</h2>
             </header>
-            <hr/>
+            <hr className="my-0" />
         </>
     );
 }
